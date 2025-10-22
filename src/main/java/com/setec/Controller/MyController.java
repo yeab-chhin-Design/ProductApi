@@ -25,15 +25,12 @@ import com.setec.DAO.PutProductDAO;
 import com.setec.Entities.Product;
 import com.setec.Repo.ProductRepo;
 
-import lombok.experimental.var;
-
 @RestController
 @RequestMapping("/api/product")
 public class MyController {
 	@Autowired
 	private ProductRepo productRepo;
 	
-	@SuppressWarnings("deprecation")
 	@GetMapping
 	public Object getAll() {
 		var products = productRepo.findAll();
