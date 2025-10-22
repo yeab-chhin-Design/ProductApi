@@ -2,6 +2,8 @@ package com.setec.Entities;
 
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,11 +24,14 @@ public class Product {
 	private Integer id;
 	private String name;
 	private double price;
+	
+	@JsonIgnore
+	  private String imageUrl;
+	
 	private int qty;
 	public double getAmount( ) {
 		return price * qty;
 	}
-	private String imageUrl;
 	
 	public String getFullImageUrl() {
 		return ServletUriComponentsBuilder.fromCurrentContextPath().build().toString() + imageUrl;
